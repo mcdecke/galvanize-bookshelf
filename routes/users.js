@@ -17,7 +17,7 @@ router.post('/users', (q, s, _) => {
         "last_name": q.body.lastName,
         "hashed_password": hashedPassword
       }))
-      .returning(['id', 'email', 'first_name', 'last_name'])
+      .returning(['id','email', 'first_name', 'last_name'])
       .then((data) => {
         s.json(humps.camelizeKeys(data[0]))
       })
