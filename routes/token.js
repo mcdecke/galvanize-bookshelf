@@ -37,7 +37,7 @@ router.post('/token', (q, s, _) => {
       bcrypt.compare(q.body.password, users[0].hashed_password, (err, result) => {
         if (result) {
           let token = jwt.sign({
-            'id': q.body.id,
+            'userId': q.body.id,
             'email': q.body.email,
             'hashed_password': users[0].hashed_password
           }, KEY)
